@@ -1,0 +1,444 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+    max-width: 90%;
+    transition: transform 1s;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    text-transform: uppercase;
+}
+
+header i {
+    font-size: 50px;
+    transition: all 0.3s;
+}
+
+header .icon-cart {
+    position: relative;
+    z-index: 1;
+    padding-top: 12px;
+    cursor: pointer;
+}
+
+header .icon-cart .total-quantity {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(20px);
+    transition: all 0.3s;
+}
+
+.list-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+}
+
+.list-products .item {
+    position: relative;
+    text-transform: capitalize;
+
+}
+
+.list-products .item img {
+    width: 100%;
+}
+
+.list-products .item h2 {
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.list-products .item .price {
+    font-size: x-large;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.list-products .item button {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: 20px 30px;
+    box-shadow: 0 10px 50px #000;
+    cursor: pointer;
+    transform: translateX(-50%) translateY(100px);
+    opacity: 0;
+}
+
+.list-products .item:hover button {
+    transition: 0.5s;
+    transform: translateX(-50%);
+    opacity: 1;
+}
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: -1200%;
+    width: 400px;
+    height: 100vh;
+    padding: 20px 20px;
+    background-color: #000;
+    color: white;
+    text-transform: capitalize;
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+    gap: 20px;
+    transition: all 0.9s;
+}
+
+.cart h2 {
+    color: orangered;
+    text-transform: uppercase;
+}
+
+.cart .listcart {
+    overflow: auto;
+}
+
+.cart .listcart .item {
+    display: grid;
+    grid-template-columns: 50px 1fr 70px;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+
+}
+
+.cart .listcart .item img {
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+}
+
+.cart .listcart .item .name {
+    font-weight: bold;
+}
+
+.cart .listcart .item .quantity {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.cart .listcart .item .quantity button {
+    width: 20px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart .listcart .item .quantity span {
+    display: block;
+    width: 50px;
+    text-align: center;
+}
+
+.cart .listcart::-webkit-scrollbar {
+    width: 0;
+}
+
+.cart .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.cart .buttons div {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.cart .buttons a {
+    color: white;
+}
+
+.cart .buttons .checkout {
+    background-color: orange;
+}
+
+
+/* checkout page */
+
+.checkoutlayout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 20px;
+
+}
+
+.checkoutlayout .right {
+    background-color: #5358b3;
+    border-radius: 20px;
+    padding: 40px;
+    color: white;
+    text-transform: capitalize;
+}
+
+.checkoutlayout .right h1 {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.checkoutlayout .list img {
+    height: 70px;
+}
+
+.right .form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    border-bottom: 1px solid #7a7fe2;
+    padding-bottom: 20px;
+}
+
+.checkoutlayout .right .form .group:nth-child(-n+3) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.checkoutlayout .form input,
+.checkoutlayout .form select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-top: 10px;
+    border: none;
+    background-color: #6a6fc9;
+    color: white;
+}
+
+.checkoutlayout .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.checkoutlayout .row div:nth-child(2) {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.buttoncheckout {
+    width: 100%;
+    height: 48px;
+    border-radius: 20px;
+    background-color: rgb(13, 187, 240);
+    color: white;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    padding: 15px;
+}
+
+.returncart a {
+    margin-bottom: 20px;
+}
+
+.returncart h2 {
+    border-top: 1px solid #000;
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+
+.returncart .list .item img {
+    height: 80px;
+    border-radius: 10px;
+}
+
+.returncart .item {
+    display: grid;
+    grid-template-columns: 80px 1fr 50px 80px;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    text-transform: capitalize;
+    box-shadow: 0 10px 20px #555;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.returncart .item .name,
+.returncart .item .returnprice {
+    font-size: x-large;
+    font-weight: bold;
+    transition: all 0.3s;
+
+}
+
+/* responsive index page */
+
+@media screen and (max-width:900px) {
+    .list-products .item button {
+        width: 60%;
+        padding: 15px 5px;
+    }
+
+    
+}
+
+@media screen and (max-width:790px) {
+    .list-products .item h2 {
+        font-weight: 700;
+        font-size: larger;
+        text-align: center;
+    }
+
+    .list-products .item .price {
+        font-size: large;
+        text-align: center;
+    }
+
+    .cart {
+        right: -200%;
+        width: 300px;
+        padding: 15px;
+
+    }
+
+    .cart h2 {
+        color: orangered;
+        text-transform: uppercase;
+        align-items: center;
+        margin: 15px 0;
+    }
+}
+
+
+@media screen and (max-width:460px) {
+    .list-products {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    header i {
+        font-size: 40px;
+    }
+
+    header .icon-cart .total-quantity {
+        width: 24px;
+        height: 24px;
+        font-size: medium;
+
+    }
+
+    header h1 {
+        font-size: 25px;
+        transition: all 0.3s;
+    }
+
+    .list-products .item button {
+        width: 60%;
+        padding: 15px 5px;
+    }
+
+    .list-products .item h2 {
+        font-weight: 700;
+        font-size: large;
+        text-align: center;
+    }
+
+    .list-products .item .price {
+        font-size: large;
+        text-align: center;
+    }
+
+    .cart {
+        right: -200%;
+        width: 300px;
+        padding: 15px;
+
+    }
+
+    .cart h2 {
+        color: orangered;
+        text-transform: uppercase;
+        align-items: center;
+        margin: 15px 0;
+    }
+
+    .cart .buttons {
+        position: relative;
+        bottom: 200px;
+    }
+
+
+}
+
+/* responsive checkout page */
+@media screen and (max-width:900px) {
+    .returncart .item {
+        gap: 5px;
+
+    }
+
+    .returncart .item .name,
+    .returncart .item .returnprice {
+        font-size: small;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width:675px) {
+    .checkoutlayout {
+        display: block;
+    }
+}
